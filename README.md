@@ -90,7 +90,3 @@ http://localhost:3000/api/docs
 - `src/airport`: Contains airport entity, service, controller, and tests
 - `src/airline-airport`: Contains association logic, service, controller, and tests
 - `collections`: Contains Postman collections for testing the API
-
-## License
-
-This project is [MIT licensed](LICENSE).
