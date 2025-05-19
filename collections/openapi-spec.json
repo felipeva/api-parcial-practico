@@ -1,0 +1,771 @@
+{
+  "openapi": "3.0.0",
+  "paths": {
+    "/airlines": {
+      "get": {
+        "operationId": "AirlineController_findAll",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Return all airlines",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Airline"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "summary": "Get all airlines",
+        "tags": [
+          "airlines"
+        ]
+      },
+      "post": {
+        "operationId": "AirlineController_create",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateAirlineDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "The airline has been created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Airline"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request - validation error"
+          }
+        },
+        "summary": "Create a new airline",
+        "tags": [
+          "airlines"
+        ]
+      }
+    },
+    "/airlines/{id}": {
+      "get": {
+        "operationId": "AirlineController_findOne",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "description": "Airline ID",
+            "schema": {
+              "type": "number"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Return the airline",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Airline"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Airline not found"
+          }
+        },
+        "summary": "Get a specific airline by ID",
+        "tags": [
+          "airlines"
+        ]
+      },
+      "put": {
+        "operationId": "AirlineController_update",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "description": "Airline ID",
+            "schema": {
+              "type": "number"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateAirlineDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The airline has been updated",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Airline"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request - validation error"
+          },
+          "404": {
+            "description": "Airline not found"
+          }
+        },
+        "summary": "Update an airline",
+        "tags": [
+          "airlines"
+        ]
+      },
+      "delete": {
+        "operationId": "AirlineController_delete",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "description": "Airline ID",
+            "schema": {
+              "type": "number"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "The airline has been deleted"
+          },
+          "404": {
+            "description": "Airline not found"
+          }
+        },
+        "summary": "Delete an airline",
+        "tags": [
+          "airlines"
+        ]
+      }
+    },
+    "/airports": {
+      "get": {
+        "operationId": "AirportController_findAll",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Return all airports",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Airport"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "summary": "Get all airports",
+        "tags": [
+          "airports"
+        ]
+      },
+      "post": {
+        "operationId": "AirportController_create",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateAirportDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "The airport has been created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Airport"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request - validation error"
+          }
+        },
+        "summary": "Create a new airport",
+        "tags": [
+          "airports"
+        ]
+      }
+    },
+    "/airports/{id}": {
+      "get": {
+        "operationId": "AirportController_findOne",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "description": "Airport ID",
+            "schema": {
+              "type": "number"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Return the airport",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Airport"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Airport not found"
+          }
+        },
+        "summary": "Get a specific airport by ID",
+        "tags": [
+          "airports"
+        ]
+      },
+      "put": {
+        "operationId": "AirportController_update",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "description": "Airport ID",
+            "schema": {
+              "type": "number"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateAirportDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The airport has been updated",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Airport"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request - validation error"
+          },
+          "404": {
+            "description": "Airport not found"
+          }
+        },
+        "summary": "Update an airport",
+        "tags": [
+          "airports"
+        ]
+      },
+      "delete": {
+        "operationId": "AirportController_delete",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "description": "Airport ID",
+            "schema": {
+              "type": "number"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "The airport has been deleted"
+          },
+          "404": {
+            "description": "Airport not found"
+          }
+        },
+        "summary": "Delete an airport",
+        "tags": [
+          "airports"
+        ]
+      }
+    },
+    "/airlines/{airlineId}/airports/{airportId}": {
+      "post": {
+        "operationId": "AirlineAirportController_addAirportToAirline",
+        "parameters": [
+          {
+            "name": "airlineId",
+            "required": true,
+            "in": "path",
+            "description": "Airline ID",
+            "schema": {
+              "type": "number"
+            }
+          },
+          {
+            "name": "airportId",
+            "required": true,
+            "in": "path",
+            "description": "Airport ID",
+            "schema": {
+              "type": "number"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The airport has been associated with the airline",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Airline"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Airline or airport not found"
+          }
+        },
+        "summary": "Associate an airport with an airline",
+        "tags": [
+          "airlines-airports"
+        ]
+      },
+      "get": {
+        "operationId": "AirlineAirportController_findAirportFromAirline",
+        "parameters": [
+          {
+            "name": "airlineId",
+            "required": true,
+            "in": "path",
+            "description": "Airline ID",
+            "schema": {
+              "type": "number"
+            }
+          },
+          {
+            "name": "airportId",
+            "required": true,
+            "in": "path",
+            "description": "Airport ID",
+            "schema": {
+              "type": "number"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Return the airport",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Airport"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Airline or airport not found"
+          }
+        },
+        "summary": "Get a specific airport for an airline",
+        "tags": [
+          "airlines-airports"
+        ]
+      },
+      "delete": {
+        "operationId": "AirlineAirportController_deleteAirportFromAirline",
+        "parameters": [
+          {
+            "name": "airlineId",
+            "required": true,
+            "in": "path",
+            "description": "Airline ID",
+            "schema": {
+              "type": "number"
+            }
+          },
+          {
+            "name": "airportId",
+            "required": true,
+            "in": "path",
+            "description": "Airport ID",
+            "schema": {
+              "type": "number"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "The airport has been removed from the airline"
+          },
+          "404": {
+            "description": "Airline or airport not found"
+          }
+        },
+        "summary": "Remove an airport from an airline",
+        "tags": [
+          "airlines-airports"
+        ]
+      }
+    },
+    "/airlines/{airlineId}/airports": {
+      "get": {
+        "operationId": "AirlineAirportController_findAirportsFromAirline",
+        "parameters": [
+          {
+            "name": "airlineId",
+            "required": true,
+            "in": "path",
+            "description": "Airline ID",
+            "schema": {
+              "type": "number"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Return all airports for the airline",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Airport"
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Airline not found"
+          }
+        },
+        "summary": "Get all airports for an airline",
+        "tags": [
+          "airlines-airports"
+        ]
+      },
+      "put": {
+        "operationId": "AirlineAirportController_updateAirportsFromAirline",
+        "parameters": [
+          {
+            "name": "airlineId",
+            "required": true,
+            "in": "path",
+            "description": "Airline ID",
+            "schema": {
+              "type": "number"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateAirportsDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The airports have been updated",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Airline"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Airline or airport not found"
+          }
+        },
+        "summary": "Update airports for an airline",
+        "tags": [
+          "airlines-airports"
+        ]
+      }
+    }
+  },
+  "info": {
+    "title": "Airlines Coverage API",
+    "description": "API for managing airlines, airports, and their coverage",
+    "version": "1.0",
+    "contact": {}
+  },
+  "tags": [
+    {
+      "name": "airlines",
+      "description": ""
+    },
+    {
+      "name": "airports",
+      "description": ""
+    },
+    {
+      "name": "airlines-airports",
+      "description": ""
+    }
+  ],
+  "servers": [],
+  "components": {
+    "schemas": {
+      "Airline": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "number",
+            "description": "The ID of the airline",
+            "example": 1
+          },
+          "name": {
+            "type": "string",
+            "description": "The name of the airline",
+            "example": "American Airlines"
+          },
+          "description": {
+            "type": "string",
+            "description": "Description of the airline",
+            "example": "American Airlines is a major US airline."
+          },
+          "foundationDate": {
+            "format": "date-time",
+            "type": "string",
+            "description": "Foundation date of the airline",
+            "example": "1934-04-15"
+          },
+          "website": {
+            "type": "string",
+            "description": "Website URL of the airline",
+            "example": "https://www.aa.com"
+          }
+        },
+        "required": [
+          "id",
+          "name",
+          "description",
+          "foundationDate",
+          "website"
+        ]
+      },
+      "CreateAirlineDto": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "The name of the airline",
+            "example": "American Airlines"
+          },
+          "description": {
+            "type": "string",
+            "description": "Description of the airline",
+            "example": "American Airlines is a major US airline."
+          },
+          "foundationDate": {
+            "format": "date-time",
+            "type": "string",
+            "description": "Foundation date of the airline",
+            "example": "1934-04-15"
+          },
+          "website": {
+            "type": "string",
+            "description": "Website URL of the airline",
+            "example": "https://www.aa.com"
+          }
+        },
+        "required": [
+          "name",
+          "description",
+          "foundationDate",
+          "website"
+        ]
+      },
+      "UpdateAirlineDto": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "The name of the airline",
+            "example": "American Airlines"
+          },
+          "description": {
+            "type": "string",
+            "description": "Description of the airline",
+            "example": "American Airlines is a major US airline."
+          },
+          "foundationDate": {
+            "format": "date-time",
+            "type": "string",
+            "description": "Foundation date of the airline",
+            "example": "1934-04-15"
+          },
+          "website": {
+            "type": "string",
+            "description": "Website URL of the airline",
+            "example": "https://www.aa.com"
+          }
+        }
+      },
+      "Airport": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "number",
+            "description": "The ID of the airport",
+            "example": 1
+          },
+          "name": {
+            "type": "string",
+            "description": "The name of the airport",
+            "example": "John F. Kennedy International Airport"
+          },
+          "code": {
+            "type": "string",
+            "description": "The three-letter code of the airport",
+            "example": "JFK"
+          },
+          "country": {
+            "type": "string",
+            "description": "The country where the airport is located",
+            "example": "United States"
+          },
+          "city": {
+            "type": "string",
+            "description": "The city where the airport is located",
+            "example": "New York"
+          }
+        },
+        "required": [
+          "id",
+          "name",
+          "code",
+          "country",
+          "city"
+        ]
+      },
+      "CreateAirportDto": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "The name of the airport",
+            "example": "John F. Kennedy International Airport"
+          },
+          "code": {
+            "type": "string",
+            "description": "The three-letter code of the airport",
+            "example": "JFK"
+          },
+          "country": {
+            "type": "string",
+            "description": "The country where the airport is located",
+            "example": "United States"
+          },
+          "city": {
+            "type": "string",
+            "description": "The city where the airport is located",
+            "example": "New York"
+          }
+        },
+        "required": [
+          "name",
+          "code",
+          "country",
+          "city"
+        ]
+      },
+      "UpdateAirportDto": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "The name of the airport",
+            "example": "John F. Kennedy International Airport"
+          },
+          "code": {
+            "type": "string",
+            "description": "The three-letter code of the airport",
+            "example": "JFK"
+          },
+          "country": {
+            "type": "string",
+            "description": "The country where the airport is located",
+            "example": "United States"
+          },
+          "city": {
+            "type": "string",
+            "description": "The city where the airport is located",
+            "example": "New York"
+          }
+        }
+      },
+      "UpdateAirportsDto": {
+        "type": "object",
+        "properties": {
+          "airportIds": {
+            "description": "Array of airport IDs to associate with the airline",
+            "example": [
+              1,
+              2,
+              3
+            ],
+            "type": "array",
+            "items": {
+              "type": "number"
+            }
+          }
+        },
+        "required": [
+          "airportIds"
+        ]
+      }
+    }
+  }
+}

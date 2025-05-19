@@ -1,0 +1,3026 @@
+{
+	"info": {
+		"_postman_id": "ae3710d4-3c73-4416-8e9a-3d9c67455f0c",
+		"name": "Airlines Coverage API",
+		"description": "API for managing airlines, airports, and their coverage",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "11028303",
+		"_collection_link": "https://alvama.postman.co/workspace/Team-Workspace~99b5fa89-e443-4ad6-8d32-5995ee1292af/collection/11028303-ae3710d4-3c73-4416-8e9a-3d9c67455f0c?action=share&source=collection_link&creator=11028303"
+	},
+	"item": [
+		{
+			"name": "airlines",
+			"item": [
+				{
+					"name": "{id}",
+					"item": [
+						{
+							"name": "Get a specific airline by ID",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/airlines/:id",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"airlines",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "-70175745.84329878",
+											"description": "(Required) Airline ID"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Return the airline",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/airlines/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"airlines",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"id\": 1,\n  \"name\": \"American Airlines\",\n  \"description\": \"American Airlines is a major US airline.\",\n  \"foundationDate\": \"1955-04-02T04:00:53.603Z\",\n  \"website\": \"https://www.aa.com\"\n}"
+								},
+								{
+									"name": "Airline not found",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/airlines/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"airlines",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id"
+												}
+											]
+										}
+									},
+									"status": "Not Found",
+									"code": 404,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								}
+							]
+						},
+						{
+							"name": "Update an airline",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"name\": \"American Airlines\",\n  \"description\": \"American Airlines is a major US airline.\",\n  \"foundationDate\": \"1981-11-01T06:09:11.286Z\",\n  \"website\": \"https://www.aa.com\"\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/airlines/:id",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"airlines",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "-70175745.84329878",
+											"description": "(Required) Airline ID"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "The airline has been updated",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"name\": \"American Airlines\",\n  \"description\": \"American Airlines is a major US airline.\",\n  \"foundationDate\": \"1981-11-01T06:09:11.286Z\",\n  \"website\": \"https://www.aa.com\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/airlines/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"airlines",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"id\": 1,\n  \"name\": \"American Airlines\",\n  \"description\": \"American Airlines is a major US airline.\",\n  \"foundationDate\": \"1955-04-02T04:00:53.603Z\",\n  \"website\": \"https://www.aa.com\"\n}"
+								},
+								{
+									"name": "Bad request - validation error",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"name\": \"American Airlines\",\n  \"description\": \"American Airlines is a major US airline.\",\n  \"foundationDate\": \"1981-11-01T06:09:11.286Z\",\n  \"website\": \"https://www.aa.com\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/airlines/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"airlines",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id"
+												}
+											]
+										}
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								},
+								{
+									"name": "Airline not found",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"name\": \"American Airlines\",\n  \"description\": \"American Airlines is a major US airline.\",\n  \"foundationDate\": \"1981-11-01T06:09:11.286Z\",\n  \"website\": \"https://www.aa.com\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/airlines/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"airlines",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id"
+												}
+											]
+										}
+									},
+									"status": "Not Found",
+									"code": 404,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								}
+							]
+						},
+						{
+							"name": "Delete an airline",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/airlines/:id",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"airlines",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "-70175745.84329878",
+											"description": "(Required) Airline ID"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "The airline has been deleted",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/airlines/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"airlines",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id"
+												}
+											]
+										}
+									},
+									"status": "No Content",
+									"code": 204,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								},
+								{
+									"name": "Airline not found",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/airlines/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"airlines",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id"
+												}
+											]
+										}
+									},
+									"status": "Not Found",
+									"code": 404,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "{airlineId}",
+					"item": [
+						{
+							"name": "airports",
+							"item": [
+								{
+									"name": "{airportId}",
+									"item": [
+										{
+											"name": "Associate an airport with an airline",
+											"request": {
+												"method": "POST",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "application/json"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/airlines/:airlineId/airports/:airportId",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"airlines",
+														":airlineId",
+														"airports",
+														":airportId"
+													],
+													"variable": [
+														{
+															"key": "airlineId",
+															"value": "-70175745.84329878",
+															"description": "(Required) Airline ID"
+														},
+														{
+															"key": "airportId",
+															"value": "-70175745.84329878",
+															"description": "(Required) Airport ID"
+														}
+													]
+												}
+											},
+											"response": [
+												{
+													"name": "The airport has been associated with the airline",
+													"originalRequest": {
+														"method": "POST",
+														"header": [
+															{
+																"key": "Accept",
+																"value": "application/json"
+															}
+														],
+														"url": {
+															"raw": "{{baseUrl}}/airlines/:airlineId/airports/:airportId",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"airlines",
+																":airlineId",
+																"airports",
+																":airportId"
+															],
+															"variable": [
+																{
+																	"key": "airlineId"
+																},
+																{
+																	"key": "airportId"
+																}
+															]
+														}
+													},
+													"status": "OK",
+													"code": 200,
+													"_postman_previewlanguage": "json",
+													"header": [
+														{
+															"key": "Content-Type",
+															"value": "application/json"
+														}
+													],
+													"cookie": [],
+													"body": "{\n  \"id\": 1,\n  \"name\": \"American Airlines\",\n  \"description\": \"American Airlines is a major US airline.\",\n  \"foundationDate\": \"1955-04-02T04:00:53.603Z\",\n  \"website\": \"https://www.aa.com\"\n}"
+												},
+												{
+													"name": "Airline or airport not found",
+													"originalRequest": {
+														"method": "POST",
+														"header": [],
+														"url": {
+															"raw": "{{baseUrl}}/airlines/:airlineId/airports/:airportId",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"airlines",
+																":airlineId",
+																"airports",
+																":airportId"
+															],
+															"variable": [
+																{
+																	"key": "airlineId"
+																},
+																{
+																	"key": "airportId"
+																}
+															]
+														}
+													},
+													"status": "Not Found",
+													"code": 404,
+													"_postman_previewlanguage": "text",
+													"header": [],
+													"cookie": [],
+													"body": ""
+												}
+											]
+										},
+										{
+											"name": "Get a specific airport for an airline",
+											"request": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "application/json"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/airlines/:airlineId/airports/:airportId",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"airlines",
+														":airlineId",
+														"airports",
+														":airportId"
+													],
+													"variable": [
+														{
+															"key": "airlineId",
+															"value": "-70175745.84329878",
+															"description": "(Required) Airline ID"
+														},
+														{
+															"key": "airportId",
+															"value": "-70175745.84329878",
+															"description": "(Required) Airport ID"
+														}
+													]
+												}
+											},
+											"response": [
+												{
+													"name": "Return the airport",
+													"originalRequest": {
+														"method": "GET",
+														"header": [
+															{
+																"key": "Accept",
+																"value": "application/json"
+															}
+														],
+														"url": {
+															"raw": "{{baseUrl}}/airlines/:airlineId/airports/:airportId",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"airlines",
+																":airlineId",
+																"airports",
+																":airportId"
+															],
+															"variable": [
+																{
+																	"key": "airlineId"
+																},
+																{
+																	"key": "airportId"
+																}
+															]
+														}
+													},
+													"status": "OK",
+													"code": 200,
+													"_postman_previewlanguage": "json",
+													"header": [
+														{
+															"key": "Content-Type",
+															"value": "application/json"
+														}
+													],
+													"cookie": [],
+													"body": "{\n  \"id\": 1,\n  \"name\": \"John F. Kennedy International Airport\",\n  \"code\": \"JFK\",\n  \"country\": \"United States\",\n  \"city\": \"New York\"\n}"
+												},
+												{
+													"name": "Airline or airport not found",
+													"originalRequest": {
+														"method": "GET",
+														"header": [],
+														"url": {
+															"raw": "{{baseUrl}}/airlines/:airlineId/airports/:airportId",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"airlines",
+																":airlineId",
+																"airports",
+																":airportId"
+															],
+															"variable": [
+																{
+																	"key": "airlineId"
+																},
+																{
+																	"key": "airportId"
+																}
+															]
+														}
+													},
+													"status": "Not Found",
+													"code": 404,
+													"_postman_previewlanguage": "text",
+													"header": [],
+													"cookie": [],
+													"body": ""
+												}
+											]
+										},
+										{
+											"name": "Remove an airport from an airline",
+											"request": {
+												"method": "DELETE",
+												"header": [],
+												"url": {
+													"raw": "{{baseUrl}}/airlines/:airlineId/airports/:airportId",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"airlines",
+														":airlineId",
+														"airports",
+														":airportId"
+													],
+													"variable": [
+														{
+															"key": "airlineId",
+															"value": "-70175745.84329878",
+															"description": "(Required) Airline ID"
+														},
+														{
+															"key": "airportId",
+															"value": "-70175745.84329878",
+															"description": "(Required) Airport ID"
+														}
+													]
+												}
+											},
+											"response": [
+												{
+													"name": "The airport has been removed from the airline",
+													"originalRequest": {
+														"method": "DELETE",
+														"header": [],
+														"url": {
+															"raw": "{{baseUrl}}/airlines/:airlineId/airports/:airportId",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"airlines",
+																":airlineId",
+																"airports",
+																":airportId"
+															],
+															"variable": [
+																{
+																	"key": "airlineId"
+																},
+																{
+																	"key": "airportId"
+																}
+															]
+														}
+													},
+													"status": "No Content",
+													"code": 204,
+													"_postman_previewlanguage": "text",
+													"header": [],
+													"cookie": [],
+													"body": ""
+												},
+												{
+													"name": "Airline or airport not found",
+													"originalRequest": {
+														"method": "DELETE",
+														"header": [],
+														"url": {
+															"raw": "{{baseUrl}}/airlines/:airlineId/airports/:airportId",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"airlines",
+																":airlineId",
+																"airports",
+																":airportId"
+															],
+															"variable": [
+																{
+																	"key": "airlineId"
+																},
+																{
+																	"key": "airportId"
+																}
+															]
+														}
+													},
+													"status": "Not Found",
+													"code": 404,
+													"_postman_previewlanguage": "text",
+													"header": [],
+													"cookie": [],
+													"body": ""
+												}
+											]
+										}
+									]
+								},
+								{
+									"name": "Get all airports for an airline",
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/airlines/:airlineId/airports",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"airlines",
+												":airlineId",
+												"airports"
+											],
+											"variable": [
+												{
+													"key": "airlineId",
+													"value": "-70175745.84329878",
+													"description": "(Required) Airline ID"
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "Return all airports for the airline",
+											"originalRequest": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "application/json"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/airlines/:airlineId/airports",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"airlines",
+														":airlineId",
+														"airports"
+													],
+													"variable": [
+														{
+															"key": "airlineId"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "[\n  {\n    \"id\": 1,\n    \"name\": \"John F. Kennedy International Airport\",\n    \"code\": \"JFK\",\n    \"country\": \"United States\",\n    \"city\": \"New York\"\n  },\n  {\n    \"id\": 1,\n    \"name\": \"John F. Kennedy International Airport\",\n    \"code\": \"JFK\",\n    \"country\": \"United States\",\n    \"city\": \"New York\"\n  }\n]"
+										},
+										{
+											"name": "Airline not found",
+											"originalRequest": {
+												"method": "GET",
+												"header": [],
+												"url": {
+													"raw": "{{baseUrl}}/airlines/:airlineId/airports",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"airlines",
+														":airlineId",
+														"airports"
+													],
+													"variable": [
+														{
+															"key": "airlineId"
+														}
+													]
+												}
+											},
+											"status": "Not Found",
+											"code": 404,
+											"_postman_previewlanguage": "text",
+											"header": [],
+											"cookie": [],
+											"body": ""
+										}
+									]
+								},
+								{
+									"name": "Update airports for an airline",
+									"request": {
+										"method": "PUT",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"airportIds\": [\n    1,\n    2,\n    3\n  ]\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/airlines/:airlineId/airports",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"airlines",
+												":airlineId",
+												"airports"
+											],
+											"variable": [
+												{
+													"key": "airlineId",
+													"value": "-70175745.84329878",
+													"description": "(Required) Airline ID"
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "The airports have been updated",
+											"originalRequest": {
+												"method": "PUT",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													},
+													{
+														"key": "Accept",
+														"value": "application/json"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"airportIds\": [\n    1,\n    2,\n    3\n  ]\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/airlines/:airlineId/airports",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"airlines",
+														":airlineId",
+														"airports"
+													],
+													"variable": [
+														{
+															"key": "airlineId"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"id\": 1,\n  \"name\": \"American Airlines\",\n  \"description\": \"American Airlines is a major US airline.\",\n  \"foundationDate\": \"1955-04-02T04:00:53.603Z\",\n  \"website\": \"https://www.aa.com\"\n}"
+										},
+										{
+											"name": "Airline or airport not found",
+											"originalRequest": {
+												"method": "PUT",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"airportIds\": [\n    1,\n    2,\n    3\n  ]\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/airlines/:airlineId/airports",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"airlines",
+														":airlineId",
+														"airports"
+													],
+													"variable": [
+														{
+															"key": "airlineId"
+														}
+													]
+												}
+											},
+											"status": "Not Found",
+											"code": 404,
+											"_postman_previewlanguage": "text",
+											"header": [],
+											"cookie": [],
+											"body": ""
+										}
+									]
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "Get all airlines",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/airlines",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"airlines"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Return all airlines",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/airlines",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"airlines"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "[\n  {\n    \"id\": 1,\n    \"name\": \"American Airlines\",\n    \"description\": \"American Airlines is a major US airline.\",\n    \"foundationDate\": \"2016-08-29T15:39:09.777Z\",\n    \"website\": \"https://www.aa.com\"\n  },\n  {\n    \"id\": 1,\n    \"name\": \"American Airlines\",\n    \"description\": \"American Airlines is a major US airline.\",\n    \"foundationDate\": \"1967-05-16T02:08:52.441Z\",\n    \"website\": \"https://www.aa.com\"\n  }\n]"
+						}
+					]
+				},
+				{
+					"name": "Create a new airline",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"American Airlines\",\n  \"description\": \"American Airlines is a major US airline.\",\n  \"foundationDate\": \"1994-03-15T02:27:56.604Z\",\n  \"website\": \"https://www.aa.com\"\n}",
+							"options": {
+								"raw": {
+									"headerFamily": "json",
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/airlines",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"airlines"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "The airline has been created",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"name\": \"American Airlines\",\n  \"description\": \"American Airlines is a major US airline.\",\n  \"foundationDate\": \"1994-03-15T02:27:56.604Z\",\n  \"website\": \"https://www.aa.com\"\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/airlines",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"airlines"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"id\": 1,\n  \"name\": \"American Airlines\",\n  \"description\": \"American Airlines is a major US airline.\",\n  \"foundationDate\": \"1955-04-02T04:00:53.603Z\",\n  \"website\": \"https://www.aa.com\"\n}"
+						},
+						{
+							"name": "Bad request - validation error",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"name\": \"American Airlines\",\n  \"description\": \"American Airlines is a major US airline.\",\n  \"foundationDate\": \"1994-03-15T02:27:56.604Z\",\n  \"website\": \"https://www.aa.com\"\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/airlines",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"airlines"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "text",
+							"header": [],
+							"cookie": [],
+							"body": ""
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "airports",
+			"item": [
+				{
+					"name": "{id}",
+					"item": [
+						{
+							"name": "Get a specific airport by ID",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/airports/:id",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"airports",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "-70175745.84329878",
+											"description": "(Required) Airport ID"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Return the airport",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/airports/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"airports",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"id\": 1,\n  \"name\": \"John F. Kennedy International Airport\",\n  \"code\": \"JFK\",\n  \"country\": \"United States\",\n  \"city\": \"New York\"\n}"
+								},
+								{
+									"name": "Airport not found",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/airports/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"airports",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id"
+												}
+											]
+										}
+									},
+									"status": "Not Found",
+									"code": 404,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								}
+							]
+						},
+						{
+							"name": "Update an airport",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"name\": \"John F. Kennedy International Airport\",\n  \"code\": \"JFK\",\n  \"country\": \"United States\",\n  \"city\": \"New York\"\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/airports/:id",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"airports",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "-70175745.84329878",
+											"description": "(Required) Airport ID"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "The airport has been updated",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"name\": \"John F. Kennedy International Airport\",\n  \"code\": \"JFK\",\n  \"country\": \"United States\",\n  \"city\": \"New York\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/airports/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"airports",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"id\": 1,\n  \"name\": \"John F. Kennedy International Airport\",\n  \"code\": \"JFK\",\n  \"country\": \"United States\",\n  \"city\": \"New York\"\n}"
+								},
+								{
+									"name": "Bad request - validation error",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"name\": \"John F. Kennedy International Airport\",\n  \"code\": \"JFK\",\n  \"country\": \"United States\",\n  \"city\": \"New York\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/airports/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"airports",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id"
+												}
+											]
+										}
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								},
+								{
+									"name": "Airport not found",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"name\": \"John F. Kennedy International Airport\",\n  \"code\": \"JFK\",\n  \"country\": \"United States\",\n  \"city\": \"New York\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/airports/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"airports",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id"
+												}
+											]
+										}
+									},
+									"status": "Not Found",
+									"code": 404,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								}
+							]
+						},
+						{
+							"name": "Delete an airport",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/airports/:id",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"airports",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "-70175745.84329878",
+											"description": "(Required) Airport ID"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "The airport has been deleted",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/airports/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"airports",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id"
+												}
+											]
+										}
+									},
+									"status": "No Content",
+									"code": 204,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								},
+								{
+									"name": "Airport not found",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/airports/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"airports",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id"
+												}
+											]
+										}
+									},
+									"status": "Not Found",
+									"code": 404,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "Get all airports",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/airports",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"airports"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Return all airports",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/airports",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"airports"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "[\n  {\n    \"id\": 1,\n    \"name\": \"John F. Kennedy International Airport\",\n    \"code\": \"JFK\",\n    \"country\": \"United States\",\n    \"city\": \"New York\"\n  },\n  {\n    \"id\": 1,\n    \"name\": \"John F. Kennedy International Airport\",\n    \"code\": \"JFK\",\n    \"country\": \"United States\",\n    \"city\": \"New York\"\n  }\n]"
+						}
+					]
+				},
+				{
+					"name": "Create a new airport",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"John F. Kennedy International Airport\",\n  \"code\": \"JFK\",\n  \"country\": \"United States\",\n  \"city\": \"New York\"\n}",
+							"options": {
+								"raw": {
+									"headerFamily": "json",
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/airports",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"airports"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "The airport has been created",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"name\": \"John F. Kennedy International Airport\",\n  \"code\": \"JFK\",\n  \"country\": \"United States\",\n  \"city\": \"New York\"\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/airports",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"airports"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"id\": 1,\n  \"name\": \"John F. Kennedy International Airport\",\n  \"code\": \"JFK\",\n  \"country\": \"United States\",\n  \"city\": \"New York\"\n}"
+						},
+						{
+							"name": "Bad request - validation error",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"name\": \"John F. Kennedy International Airport\",\n  \"code\": \"JFK\",\n  \"country\": \"United States\",\n  \"city\": \"New York\"\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/airports",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"airports"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "text",
+							"header": [],
+							"cookie": [],
+							"body": ""
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "tests",
+			"item": [
+				{
+					"name": "airlines",
+					"item": [
+						{
+							"name": "Crear una aerolínea válida",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 201\", function () {",
+											"    pm.response.to.have.status(201);",
+											"});",
+											"",
+											"",
+											"pm.collectionVariables.set(\"airlineId\", pm.response.json().id);"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"name\": \"American Airlines\",\n  \"description\": \"American Airlines is a major US airline.\",\n  \"foundationDate\": \"1994-03-15T02:27:56.604Z\",\n  \"website\": \"https://www.aa.com\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/airlines",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"airlines"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Crear una aerolínea inválida",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 400\", function () {",
+											"    pm.response.to.have.status(400);",
+											"});"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"name\": \"American Airlines\",\n  \"description\": \"American Airlines is a major US airline.\",\n  \"foundationDate\": \"Z\",\n  \"website\": \"https://www.aa.com\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/airlines",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"airlines"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Obtener todas las aerolíneas",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {",
+											"    pm.response.to.have.status(200);",
+											"});"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"name\": \"American Airlines\",\n  \"description\": \"American Airlines is a major US airline.\",\n  \"foundationDate\": \"Z\",\n  \"website\": \"https://www.aa.com\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/airlines",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"airlines"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Obtener una aerolínea por ID",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {",
+											"    pm.response.to.have.status(200);",
+											"});"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"name\": \"American Airlines\",\n  \"description\": \"American Airlines is a major US airline.\",\n  \"foundationDate\": \"Z\",\n  \"website\": \"https://www.aa.com\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/airlines/:id",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"airlines",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "{{airlineId}}"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Obtener una aerolínea por un ID que no existe",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 404\", function () {",
+											"    pm.response.to.have.status(404);",
+											"});"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"name\": \"American Airlines\",\n  \"description\": \"American Airlines is a major US airline.\",\n  \"foundationDate\": \"Z\",\n  \"website\": \"https://www.aa.com\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/airlines/:id",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"airlines",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "0"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Actualizar una aerolínea",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {",
+											"    pm.response.to.have.status(200);",
+											"});"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"name\": \"AA\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/airlines/:id",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"airlines",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "{{airlineId}}"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Actualizar una aerolínea con un ID que no existe",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 404\", function () {",
+											"    pm.response.to.have.status(404);",
+											"});"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"name\": \"AA\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/airlines/:id",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"airlines",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "0"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Eliminar una aerolínea por su ID",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 204\", function () {",
+											"    pm.response.to.have.status(204);",
+											"});"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"name\": \"AA\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/airlines/:id",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"airlines",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "{{airlineId}}"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Eliminar una aerolínea con un ID que no existe",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 404\", function () {",
+											"    pm.response.to.have.status(404);",
+											"});"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"name\": \"AA\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/airlines/:id",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"airlines",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "0"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "airline - airport",
+					"item": [
+						{
+							"name": "Asociar un aeropuerto a una aerolínea",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 201\", function () {",
+											"    pm.response.to.have.status(201);",
+											"});",
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/airlines/:airlineId/airports/:airportId",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"airlines",
+										":airlineId",
+										"airports",
+										":airportId"
+									],
+									"variable": [
+										{
+											"key": "airlineId",
+											"value": "{{airlineId}}"
+										},
+										{
+											"key": "airportId",
+											"value": "{{airportId}}"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Asociar un aeropuerto que no existe a una aerolínea",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 404\", function () {",
+											"    pm.response.to.have.status(404);",
+											"});"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"name\": \"American Airlines\",\n  \"description\": \"American Airlines is a major US airline.\",\n  \"foundationDate\": \"Z\",\n  \"website\": \"https://www.aa.com\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/airlines/:airlineId/airports/:airportId",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"airlines",
+										":airlineId",
+										"airports",
+										":airportId"
+									],
+									"variable": [
+										{
+											"key": "airlineId",
+											"value": "0"
+										},
+										{
+											"key": "airportId",
+											"value": "{{airportId}}"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Obtener todos los aeropuertos que cubre una aerolínea",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {",
+											"    pm.response.to.have.status(200);",
+											"});"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"name\": \"American Airlines\",\n  \"description\": \"American Airlines is a major US airline.\",\n  \"foundationDate\": \"Z\",\n  \"website\": \"https://www.aa.com\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/airlines/:airlineId/airports",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"airlines",
+										":airlineId",
+										"airports"
+									],
+									"variable": [
+										{
+											"key": "airlineId",
+											"value": "{{airlineId}}"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Obtener un aeropuerto asociado a una aerolínea.",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {",
+											"    pm.response.to.have.status(200);",
+											"});"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"name\": \"American Airlines\",\n  \"description\": \"American Airlines is a major US airline.\",\n  \"foundationDate\": \"Z\",\n  \"website\": \"https://www.aa.com\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/airlines/:airlineId/airports/:airportId",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"airlines",
+										":airlineId",
+										"airports",
+										":airportId"
+									],
+									"variable": [
+										{
+											"key": "airlineId",
+											"value": "{{airlineId}}"
+										},
+										{
+											"key": "airportId",
+											"value": "{{airportId}}"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Obtener un aeropuerto que no esté asociado a una aerolínea",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 404\", function () {",
+											"    pm.response.to.have.status(404);",
+											"});"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"name\": \"American Airlines\",\n  \"description\": \"American Airlines is a major US airline.\",\n  \"foundationDate\": \"Z\",\n  \"website\": \"https://www.aa.com\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/airlines/:airlineId/airports/:airportId",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"airlines",
+										":airlineId",
+										"airports",
+										":airportId"
+									],
+									"variable": [
+										{
+											"key": "airlineId",
+											"value": "{{airlineId}}"
+										},
+										{
+											"key": "airportId",
+											"value": "0"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Actualizar los aeropuertos que están asociados a una aerolínea",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {",
+											"    pm.response.to.have.status(200);",
+											"});"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"airportIds\": [1]\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/airlines/:airlineId/airports",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"airlines",
+										":airlineId",
+										"airports"
+									],
+									"variable": [
+										{
+											"key": "airlineId",
+											"value": "{{airlineId}}"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Actualizar los aeropuertos asociados a una aerolínea, con un aeropuerto inexistente",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 404\", function () {",
+											"    pm.response.to.have.status(404);",
+											"});"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"airportIds\": [0]\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/airlines/:id/airports",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"airlines",
+										":id",
+										"airports"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "{{airlineId}}"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Eliminar un aeropuerto previamente asociado a una aerolínea",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 204\", function () {",
+											"    pm.response.to.have.status(204);",
+											"});"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"name\": \"AA\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/airlines/:airlineId/airports/:airportId",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"airlines",
+										":airlineId",
+										"airports",
+										":airportId"
+									],
+									"variable": [
+										{
+											"key": "airlineId",
+											"value": "{{airlineId}}"
+										},
+										{
+											"key": "airportId",
+											"value": "{{airportId}}"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Eliminar un aeropuerto que no estaba previamente asociado a una aerolínea",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 404\", function () {",
+											"    pm.response.to.have.status(404);",
+											"});"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"name\": \"AA\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/airlines/:airlineId/airports/:airportId ",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"airlines",
+										":airlineId",
+										"airports",
+										":airportId "
+									],
+									"variable": [
+										{
+											"key": "airlineId",
+											"value": "{{airlineId}}"
+										},
+										{
+											"key": "airportId ",
+											"value": "0"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "airports",
+					"item": [
+						{
+							"name": "Crear un aeropuerto válido",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 201\", function () {",
+											"    pm.response.to.have.status(201);",
+											"});",
+											"",
+											"",
+											"pm.collectionVariables.set(\"airportId\", pm.response.json().id);"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"name\": \"John F. Kennedy International Airport\",\n  \"code\": \"JFK\",\n  \"country\": \"United States\",\n  \"city\": \"New York\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/airports",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"airports"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Crear un aeropuerto inválido",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 400\", function () {",
+											"    pm.response.to.have.status(400);",
+											"});"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"name\": \"John F. Kennedy International Airport\",\n  \"code\": \"JFK\",\n  \"country\": \"United States\",\n  \"city\": \"\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/airports",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"airports"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Obtener todos los aeropuertos",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {",
+											"    pm.response.to.have.status(200);",
+											"});"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/airports",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"airports"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Obtener un aeropuerto por ID",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {",
+											"    pm.response.to.have.status(200);",
+											"});"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"name\": \"American Airlines\",\n  \"description\": \"American Airlines is a major US airline.\",\n  \"foundationDate\": \"Z\",\n  \"website\": \"https://www.aa.com\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/airports/:id",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"airports",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "{{airportId}}"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Obtener un aeropuerto por un ID que no existe",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 404\", function () {",
+											"    pm.response.to.have.status(404);",
+											"});"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"name\": \"American Airlines\",\n  \"description\": \"American Airlines is a major US airline.\",\n  \"foundationDate\": \"Z\",\n  \"website\": \"https://www.aa.com\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/airports/:id",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"airports",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "0"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Actualizar un aeropuerto",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {",
+											"    pm.response.to.have.status(200);",
+											"});"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"name\": \"Airport\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/airports/:id",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"airports",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "{{airportId}}"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Actualizar un aeropuerto con un ID que no existe",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 404\", function () {",
+											"    pm.response.to.have.status(404);",
+											"});"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"name\": \"AA\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/airports/:id",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"airports",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "0"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Eliminar un aeropuerto por su ID",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 204\", function () {",
+											"    pm.response.to.have.status(204);",
+											"});"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"name\": \"AA\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/airports/:id",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"airports",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "{{airportId}}"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Eliminar un aeropuerto con un ID que no existe",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 404\", function () {",
+											"    pm.response.to.have.status(404);",
+											"});"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"name\": \"AA\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/airports/:id",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"airports",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "0"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "/"
+		},
+		{
+			"key": "airlineId",
+			"value": ""
+		},
+		{
+			"key": "airportId",
+			"value": ""
+		}
+	]
+}
